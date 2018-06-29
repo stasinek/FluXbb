@@ -1,0 +1,53 @@
+##
+##
+##        If you want to add a link in the footer to share the forum,
+##        just follow these instructions :-)
+##
+##        adaur, 12/20/10
+
+
+#
+#---------[ 1. OPEN ]-------------------------------------------------------
+#
+
+footer.php
+
+
+#
+#---------[ 2. FIND ]----------------------------------------------------------
+#
+
+
+				<p id="poweredby"><?php printf($lang_common['Powered by'], '<a href="http://fluxbb.org/">FluxBB</a>'.(($pun_config['o_show_version'] == '1') ? ' '.$pun_config['o_cur_version'] : '')) ?></p>
+
+
+#
+#---------[ 3. REPLACE WITH ]---------------------------------------------
+#
+
+				<p id="poweredby"><img src="http://static.ak.facebook.com/images/share/facebook_share_icon.gif" /> <a href="http://www.facebook.com/sharer.php?u=<?php echo $pun_config['o_base_url'] ?>" target="_blank"><?php echo $lang_common['Share on Facebook'] ?></a>
+				<?php printf($lang_common['Powered by'], '<a href="http://fluxbb.org/">FluxBB</a>'.(($pun_config['o_show_version'] == '1') ? ' '.$pun_config['o_cur_version'] : '')) ?></p>
+
+
+#
+#---------[ 4. OPEN ]------------------------------------------------
+#
+
+/lang/your_language/common.php
+
+#
+#---------[ 5. FIND ]----------------------------------------------------------
+#
+
+'Powered by'						=>	'Powered by %s',
+
+
+#
+#---------[ 6. ADD AFTER ]---------------------------------------------
+#
+
+'Share on Facebook'					=>	'Share this forum on Facebook',
+
+#
+#---------[ 7. SAVE/UPLOAD ]-------------------------------------------------
+#

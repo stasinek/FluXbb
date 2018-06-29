@@ -1,0 +1,10 @@
+## Version 1.0.2, 2011-05-12
+Changed step numbers in readme
+Added repository URL and edited release date
+
+## Version 1.0.1, 2011-05-10
+Changed linenumbers in readme
+Minor code improvement
+
+## Version 1.0, 2011-04-30
+Initial Release

@@ -1,0 +1,38 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 \
+Mod title:  An image title\
+\
+Mod version:  1.0\
+Works on FluxBB:  1.5.0 (Should work on most all, but not tested on anything but 1.5)\
+Release date:  2012-06-06\
+Author:  Stevetheipad (nipper4kids@gmail.com) - Version 1.\
+Description:  This mod will allow you to only have an image for your forum title.\
+Affected files:  header.php\
+Affects DB:  Yes\
+Notes: None                \
+Written by Stevetheipad\
+on: 2012-06-06\
+\
+DISCLAIMER:  Please note that "mods" are not officially supported by\
+FluxBB. Installation of this modification is done at your\
+own risk. Backup your forum database and any and all\
+applicable files before proceeding.\
+_____________________________________________________________________________\
+
+\b Installation Instructions:\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 1. Set your forum title (Administration>Options) to your desired page title\
+2. Set your board description to "<img src="image url here" alt="" />"\
+3. Go to header.php in your ftp client\
+4. Find the text "// START SUBST - <pun_title>\
+$tpl_main = str_replace('<pun_title>', '<h1><a href="index.php">'.pun_htmlspecialchars($pun_config['o_board_title']).'</a></h1>', $tpl_main);\
+// END SUBST - <pun_title>"\
+5. Delete the above text\
+6. Your done, your forum title will be your image and there will be no title.}

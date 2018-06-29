@@ -1,0 +1,76 @@
+##
+##
+##        Mod title:  Facebook on FluxBB - I like it!
+##
+##      Mod version:  1.1
+##  Works on FluxBB:  1.4.*
+##     Release date:  2010-12-20
+##           Author:  adaur (adaur.underground@gmail.com)
+##
+##      Description:  This mod allows users to like a topic on Facebook.
+##
+##   Repository URL:  http://fluxbb.org/resources/mods/facebook-on-fluxbb-i-like-it
+##
+##   Affected files:  header.php
+##                    viewtopic.php
+##
+##       Affects DB:  No
+##
+##            Notes:  If you want to add a link in the footer to share the forum,
+##                    have a look at "Bonus - Share this forum.txt" ;-)
+##
+##       DISCLAIMER:  Please note that "mods" are not officially supported by
+##                    FluxBB. Installation of this modification is done at 
+##                    your own risk. Backup your forum database and any and
+##                    all applicable files before proceeding.
+##
+##
+
+
+#
+#---------[ 1. OPEN ]-------------------------------------------------------
+#
+
+header.php
+
+
+#
+#---------[ 2. FIND ]----------------------------------------------------------
+#
+
+<title><?php echo generate_page_title($page_title, $p) ?></title>
+
+
+#
+#---------[ 3. ADD BEFORE ]-------------------------------------------------------
+#
+
+<meta property="og:title" content="<?php echo generate_page_title($page_title, $p = null) ?>"/>
+<meta property="og:site_name" content="<?php echo pun_htmlspecialchars($pun_config['o_board_title']) ?>"/>
+
+
+#
+#---------[ 4. OPEN ]---------------------------------------------------------
+#
+
+viewtopic.php
+
+
+#
+#---------[ 5. FIND ]---------------------------------------------
+#
+
+	<?php if ($signature != '') echo "\t\t\t\t\t".'<div class="postsignature postmsg"><hr />'.$signature.'</div>'."\n"; ?>
+
+
+#
+#---------[ 6. REPLACE WITH ]------------------------------------------------
+#
+
+	<?php if (($post_count + $start_from) == '1') echo "\t\t\t\t\t".'<br /><div class="postsignature postmsg"><iframe src="http://www.facebook.com/plugins/like.php?href='.$pun_config['o_base_url'].'/viewtopic.php?id='.$id.'&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:25px;" allowTransparency="true"></iframe></div>'."\n";
+		  if ($signature != '') echo "\t\t\t\t\t".'<div class="postsignature postmsg"><hr />'.$signature.'</div>'."\n"; ?>
+
+
+#
+#---------[ 7. SAVE/UPLOAD ]-------------------------------------------------
+#

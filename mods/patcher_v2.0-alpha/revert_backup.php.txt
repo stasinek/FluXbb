@@ -1,0 +1,120 @@
+<?php
+
+define('PUN_ROOT', dirname(__FILE__).'/');
+if (is_dir(PUN_ROOT.'plugins/patcher/'))
+	define('PATCHER_ROOT', PUN_ROOT.'plugins/patcher/');
+elseif (is_dir(PUN_ROOT.'patcher/plugins/patcher/'))
+	define('PATCHER_ROOT', PUN_ROOT.'patcher/plugins/patcher/');
+define('BACKUPS_DIR', PUN_ROOT.'backups/');
+
+require PATCHER_ROOT.'filesystem.class.php';
+require PATCHER_ROOT.'config.php';
+
+$fs = new Patcher_FileSystem(isset($ftpData) ? $ftpData : null);
+
+$revert = isset($_GET['revert']) ? basename($_GET['revert']) : null;
+
+if (!isset($revert))
+{
+	$backups = array();
+	$dir = dir(BACKUPS_DIR);
+	while ($curFile = $dir->read())
+	{
+		if (substr($curFile, 0, 1) != '.' && substr($curFile, strlen($curFile) - 4) == '.zip')
+			$backups[] = '<option value="'.htmlspecialchars($curFile).'">'.htmlspecialchars($curFile). '</option>';
+	}
+	@sort($backups);
+	if (count($backups) > 0)
+	echo '<form method="get" action=""><select name="revert">'.implode("\n\t\t\t\t", $backups).'</select><input type="submit" value="Revert"></form>';
+}
+else
+{
+	if (!file_exists(BACKUPS_DIR.$revert))
+	{
+		echo 'File does not exist'.$revert;
+		exit;
+	}
+	revert($revert);
+}
+
+
+
+function revert($file)
+{
+	global $pun_config, $langPatcher, $fs;
+
+	$dirsToCheck = array('./', 'include', 'lang/English');
+	foreach ($dirsToCheck as $curDir)
+	{
+		if (!$fs->isWritable(PUN_ROOT.$curDir))
+		{
+			echo 'Directory not writable '.$curDir;
+			exit;
+		}
+	}
+
+	if (file_exists(PUN_ROOT.'patcher_config.php'))
+		$fs->delete(PUN_ROOT.'patcher_config.php');
+
+	$files = zip_extract(BACKUPS_DIR.$file, PUN_ROOT, true);
+	if (!$files)
+	{
+		echo 'Failed to extract file';
+		exit;
+	}
+
+	echo 'Done';
+	exit;
+}
+
+
+function zip_extract($file, $extract_to, $list_files = false)
+{
+	global $langPatcher, $fs;
+	$files = array();
+	if (class_exists('ZipArchive'))
+	{
+		$zip = new ZipArchive;
+		if ($zip->open($file) !== true)
+			return false;
+
+		//$zip->extractTo($extract_to);
+
+		$i = 0;
+		while ($curFile = $zip->statIndex($i++))
+		{
+			$fp = $zip->getStream($curFile['name']);
+			if (!$fp)
+				message('Failed');
+			$contents = '';
+			while (!feof($fp))
+				$contents .= fread($fp, 2);
+			fclose($fp);
+
+			if (in_array(substr($curFile['name'], -1), array('/', '\\')))
+				$fs->mkdir($extract_to.'/'.$curFile['name']);
+			else
+				$fs->put($extract_to.'/'.$curFile['name'], $contents);
+			$files[] = $curFile['name'];
+		}
+
+		$zip->close();
+	}
+	else
+	{
+		require_once PATCHER_ROOT.'pclzip.lib.php';
+
+		$archive = new PclZip($file);
+		$p_list = $archive->extract(PCLZIP_OPT_EXTRACT_AS_STRING);
+		foreach ($p_list as $curFile)
+		{
+			if ($curFile['folder'] == 1)
+				$fs->mkdir($extract_to.'/'.$curFile['stored_filename']);
+			else
+				$fs->put($extract_to.'/'.$curFile['stored_filename'], $curFile['content']);
+
+			$files[] = $curFile['stored_filename'];
+		}
+	}
+	return ($list_files ? $files : true);
+}

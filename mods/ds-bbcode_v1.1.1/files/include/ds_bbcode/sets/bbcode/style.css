@@ -1,0 +1,202 @@
+/* -------------------------------------------------------------------
+// markItUp!
+// By Jay Salvat - http://markitup.jaysalvat.com/
+// ------------------------------------------------------------------*/
+.markItUp .markItUpButton1 a	{
+	background-image:url(images/bold.png);
+}
+
+.markItUp .markItUpButton2 a	{
+	background-image:url(images/italic.png);
+}
+.markItUp .markItUpButton3 a	{
+	background-image:url(images/underline.png);
+}
+
+.markItUp .markItUpButton4 a {
+	background-image:url(images/stroke.png);
+}
+
+.markItUp .markItUpButton5 a {
+	background-image:url(images/heading.png);
+}
+
+.markItUp .markItUpButton6 a {
+	background-image:url(images/offtop.png);
+}
+
+.markItUp .markItUpButton7 a {
+	background-image:url(images/inserted.png);
+}
+
+.markItUp .markItUpButton8 a {
+	background-image:url(images/emphasised.png);
+}
+
+
+.markItUp .markItUpButton9 a	{
+	background-image:url(images/quotes.png);
+}
+
+
+.markItUp .markItUpButton10 a	{
+	background-image:url(images/code.png);
+}
+
+.markItUp .markItUpButton11 a	{
+	background-image:url(images/spoiler.png);
+}
+
+.markItUp .markItUpButton12 a	{
+	background-image:url(images/hide.png);
+}
+
+.markItUp .markItUpButton13 a	{
+	background-image:url(images/link.png);
+}
+
+.markItUp .markItUpButton14 a	{
+	background-image:url(images/picture.png);
+}
+
+.markItUp .markItUpButton15 a {
+	background-image:url(images/media.png);
+}
+
+.markItUp .markItUpButton16 a	{
+	background-image:url(images/list-bullet.png);
+}
+.markItUp .markItUpButton17 a	{
+	background-image:url(images/list-numeric.png);
+}
+.markItUp .markItUpButton18 a	{
+	background-image:url(images/list-item.png);
+}
+
+
+
+.markItUp .clean a {
+	background-image:url(images/clean.png);
+}
+.markItUp .preview a {
+	background-image:url(images/preview.png);
+}
+
+
+
+
+.markItUp .palette a {
+	background-image:url(images/color_swatch.png);
+}
+	.markItUp .palette ul {
+		width:243px;
+		padding:1px;
+		left: -150px;
+	}
+	.markItUp .palette  li {
+		border:1px solid white;
+		width:25px;	height:25px;
+		overflow:hidden;
+		padding:0px; margin:0px;
+		float:left;
+	}
+	.markItUp .palette ul a {
+		width:25px;	height:25px;
+	}
+	.markItUp .palette ul a:hover {
+		background-color:none;
+	}
+	
+	.markItUp .palette .col1-1 a {
+		background:#FCE94F;
+	}
+	.markItUp .palette .col2-1 a {
+		background:#EDD400;
+	}
+	.markItUp .palette .col3-1 a {
+		background:#C4A000;
+	}
+	
+	.markItUp .palette .col1-2 a {
+		background:#FCAF3E;
+	}
+	.markItUp .palette .col2-2 a {
+		background:#F57900;
+	}
+	.markItUp .palette .col3-2 a {
+		background:#CE5C00;
+	}
+	
+	.markItUp .palette .col1-3 a {
+		background:#E9B96E;
+	}
+	.markItUp .palette .col2-3 a {
+		background:#C17D11;
+	}
+	.markItUp .palette .col3-3 a {
+		background:#8F5902;
+	}
+	
+	.markItUp .palette .col1-4 a {
+		background:#8AE234;
+	}
+	.markItUp .palette .col2-4 a {
+		background:#73D216;
+	}
+	.markItUp .palette .col3-4 a {
+		background:#4E9A06;
+	}
+								
+	.markItUp .palette .col1-5 a {
+		background:#729FCF;
+	}
+	.markItUp .palette .col2-5 a {
+		background:#3465A4;
+	}
+	.markItUp .palette .col3-5 a {
+		background:#204A87;
+	}
+
+	.markItUp .palette .col1-6 a {
+		background:#AD7FA8;
+	}
+	.markItUp .palette .col2-6 a {
+		background:#75507B;
+	}
+	.markItUp .palette .col3-6 a {
+		background:#5C3566;
+	}
+	
+	.markItUp .palette .col1-7 a {
+		background:#EF2929;
+	}
+	.markItUp .palette .col2-7 a {
+		background:#CC0000;
+	}
+	.markItUp .palette .col3-7 a {
+		background:#A40000;
+	}
+	
+	.markItUp .palette .col1-8 a {
+		background:#FFFFFF;
+	}
+	.markItUp .palette .col2-8 a {
+		background:#D3D7CF;
+	}
+	.markItUp .palette .col3-8 a {
+		background:#BABDB6;
+	}
+	
+	.markItUp .palette .col1-9 a {
+		background:#888A85;
+	}
+	.markItUp .palette .col2-9 a {
+		background:#555753;
+	}
+	.markItUp .palette .col3-9 a {
+		background:#000000;
+	}
+
+.markItUp .emoticonButton a {
+	background-image:url(images/smile.png);
+}
