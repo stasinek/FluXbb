@@ -228,8 +228,12 @@ html, body {
 #punredirect, #punmaint, #puninstall, #pundb_update {
 	margin: 50px 20% 12px 20%
 	}
-
-
+input[type="submit"] {
+	/*text-transform: uppercase;*/
+	padding: 2px 10px;
+	min-height:20px; min-width:50px;
+}
+	
 /* Vertical Element Spacing
 ----------------------------------------------------------------*/
 
@@ -269,7 +273,6 @@ html, body {
 	margin-top: -6px
 	}
 
-
 /* External Borders
 ----------------------------------------------------------------*/
 
@@ -305,8 +308,14 @@ html, body {
 #brdmenu li {
 	display: inline;
 	margin-right: 12px;
+	text-transform: uppercase;
+	padding: 5px;
 	}
-
+#brdmenu li.isactive,#brdmenu li.isactive * {
+	background-color: red;
+	color: black;
+	}
+	
 #brdmenu a:link, #brdmenu a:visited {
 	text-decoration: none
 	}
